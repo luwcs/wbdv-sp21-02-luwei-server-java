@@ -5,13 +5,13 @@
   <title>Course Manager</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="../styles.css">
-  <link rel="stylesheet" href="./login.style.client.css"/>
+  <link rel="stylesheet" href="./register.style.client.css"/>
 </head>
 <body>
 
 <div class="container">
 
-  <h1>Sign In</h1>
+  <h1>Sign Up</h1>
 
   <form>
     <div class="mb-3 row">
@@ -22,23 +22,27 @@
     </div>
 
     <div class="mb-3 row">
-      <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+      <label for="inputPassword1" class="col-sm-2 col-form-label">Password</label>
       <div class="col-sm-10">
-        <input type="password" class="form-control" id="inputPassword" placeholder="123Edsaqw!">
+        <input type="password" class="form-control" id="inputPassword1" placeholder="123Edsaqw!">
+      </div>
+    </div>
+
+    <div class="mb-3 row">
+      <label for="inputPassword2" class="col-sm-2 col-form-label">Verify Password</label>
+      <div class="col-sm-10">
+        <input type="password" class="form-control" id="inputPassword2" placeholder="123Edsaqw!">
       </div>
     </div>
 
     <div class="mb-3 row">
       <label class="col-sm-2"></label>
       <div class="col-sm-10">
-        <button class="btn btn-primary btn-block">Sign in</button>
+        <button class="btn btn-primary btn-block">Sign up</button>
 
         <div>
-          <a href="">
-            Forget Password
-          </a>
-          <a href="../register/register.template.client.html" class="float-right">
-            Sign Up
+          <a href="../login/login.template.client.html">
+            Login
           </a>
         </div>
       </div>
