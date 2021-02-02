@@ -13,6 +13,8 @@
 
   <h1>Sign In</h1>
 
+  <br/>
+
   <form>
     <div class="mb-3 row">
       <label for="username" class="col-sm-2 col-form-label">Username</label>
@@ -31,8 +33,11 @@
     <div class="mb-3 row">
       <label class="col-sm-2"></label>
       <div class="col-sm-10">
-        <button class="btn btn-primary btn-block">Sign in</button>
-
+        <a class="btn btn-primary btn-block"
+           href="../profile/profile.template.client.html"
+           role="button">
+          Sign in
+        </a>
         <div>
           <a href="">
             Forget Password
@@ -43,6 +48,13 @@
         </div>
       </div>
     </div>
+
+    <a class="btn btn-secondary"
+       href="../index.html"
+       role="button">
+      Cancel
+    </a>
+
   </form>
 </div>
 </body>
