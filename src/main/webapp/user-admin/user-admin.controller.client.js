@@ -8,15 +8,7 @@ var $updateBtn
 var tableRows
 var userService
 
-
-var users = [
-  // {username: "tlee", firstname: "Tim", lastname: "Brins Lee", role: "FACULTY"},
-  // {username: "alovelace", firstname: "Ada", lastname: "Lovelace", role: "FACULTY"},
-  // {username: "cgarcia", firstname: "Charlie", lastname: "Garcia", role: "STUDENT"},
-  // {username: "dcraig", firstname: "Dan", lastname: "Craig", role: "STUDENT"},
-  // {username: "sbolivar", firstname: "Simon", lastname: "Bolivar", role: "FACULTY"}
-]
-
+var users = []
 
 function renderUsers(users) {
   tableRows.empty()
@@ -24,12 +16,11 @@ function renderUsers(users) {
   for (var i = 0; i < users.length; i++) {
     var user = users[i];
 
-    tableRows.prepend(
+    tableRows.append(
       `
         <tr class="wbdv-template wbdv-user wbdv-hidden">
           <td class="wbdv-username">${user.username}</td>
           <td class="wbdv-password">&nbsp;</td>
-<!--          <td class="wbdv-password">*****</td>-->
           <td class="wbdv-first-name">${user.firstname}</td>
           <td class="wbdv-last-name">${user.lastname}</td>
           <td class="wbdv-role">${user.role}</td>
