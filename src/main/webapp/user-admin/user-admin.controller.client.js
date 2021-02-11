@@ -28,7 +28,8 @@ function renderUsers(users) {
       `
         <tr class="wbdv-template wbdv-user wbdv-hidden">
           <td class="wbdv-username">${user.username}</td>
-          <td>&nbsp;</td>
+          <td class="wbdv-password">&nbsp;</td>
+<!--          <td class="wbdv-password">*****</td>-->
           <td class="wbdv-first-name">${user.firstname}</td>
           <td class="wbdv-last-name">${user.lastname}</td>
           <td class="wbdv-role">${user.role}</td>
@@ -55,6 +56,7 @@ function editUser(event) {
   var theId = editBtn.attr("id")
   selectedUser = users.find(user => user._id === theId)
   $usernameFld.val(selectedUser.username)
+  $passwordFld.val(selectedUser.password)
   $firstNameFld.val(selectedUser.firstname)
   $lastNameFld.val(selectedUser.lastname)
   $roleFld.val(selectedUser.role)
@@ -62,6 +64,7 @@ function editUser(event) {
 
 function updateUser() {
   selectedUser.username = $usernameFld.val()
+  selectedUser.password = $passwordFld.val()
   selectedUser.firstname = $firstNameFld.val()
   selectedUser.lastname = $lastNameFld.val()
   selectedUser.role = $roleFld.val()
@@ -70,6 +73,7 @@ function updateUser() {
       var index = users.findIndex(user => user._id === selectedUser._id)
       users[index] = selectedUser
       renderUsers(users)
+      resetData()
     })
 }
 
@@ -97,7 +101,12 @@ function createUser() {
     .then(function (actualUser) {
       users.push(actualUser)
       renderUsers(users)
+      resetData()
     })
+
+}
+
+function resetData() {
   $usernameFld.val("")
   $passwordFld.val("")
   $firstNameFld.val("")
