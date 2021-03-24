@@ -6,6 +6,16 @@ public class Widget {
   private String type;
   private Integer size;
   private String text;
+  private String name;
+  private Integer widgetOrder;
+  private String resourceUrl;
+  private Integer width;
+  private Integer height;
+  private String cssClass;
+  private String style;
+  private String value;
+
+
 
   public Widget() {
   }
@@ -16,6 +26,7 @@ public class Widget {
     this.type = type;
     this.size = size;
     this.text = text;
+
   }
 
   public Long getId() {
