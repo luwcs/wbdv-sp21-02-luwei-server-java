@@ -53,38 +53,9 @@ public class WidgetService {
   }
 
   public Integer updateWidget(Long id, Widget widget) {
-    Widget originalWidget = repository.findById(id).get();
-
-    String topicId = widget.getTopicId();
-    if (topicId != null) originalWidget.setTopicId(topicId);
-    String type = widget.getType();
-    if (type != null) originalWidget.setType(type);
-    Integer size = widget.getSize();
-    if (size != null) originalWidget.setSize(size);
-    String text = widget.getText();
-    if (text != null) originalWidget.setText(text);
-    String name = widget.getName();
-    if (name != null) originalWidget.setName(name);
-    Boolean ordered = widget.getOrdered();
-    if (ordered != null) originalWidget.setOrdered(ordered);
-    String url = widget.getUrl();
-    if (url != null) originalWidget.setUrl(url);
-    String src = widget.getSrc();
-    if (src != null) originalWidget.setSrc(src);
-    String href = widget.getHref();
-    if (href != null) originalWidget.setHref(href);
-    Integer width = widget.getWidth();
-    if (width != null) originalWidget.setWidth(width);
-    Integer height = widget.getHeight();
-    if (height != null) originalWidget.setHeight(height);
-    String cssClass = widget.getCssClass();
-    if (cssClass != null) originalWidget.setCssClass(cssClass);
-    String style = widget.getStyle();
-    if (style != null) originalWidget.setStyle(style);
-    String value = widget.getValue();
-    if (value != null) originalWidget.setValue(value);
-
-    repository.save(originalWidget);
+    Widget originalWidget = findWidgetById(id);
+    widget.setId(originalWidget.getId());
+    repository.save(widget);
     return 1;
 //      for (int i = 0; i < widgets.size(); i++) {
 //        if (widgets.get(i).getId().equals(id)) {
@@ -93,6 +64,10 @@ public class WidgetService {
 //        }
 //      }
 //      return -1;
+  }
+
+  public Widget findWidgetById(Long wid) {
+    return repository.findWidgetById(wid);
   }
 
 }

@@ -45,4 +45,9 @@ public class WidgetController {
   public Integer updateWidget(@PathVariable("wid") Long id, @RequestBody Widget widget) {
     return service.updateWidget(id, widget);
   }
+
+  @GetMapping("/api/widgets/{wid}")
+  public Widget findWidgetById(@PathVariable("wid") Long wid) {
+    return service.findWidgetById(wid);
+  }
 }
