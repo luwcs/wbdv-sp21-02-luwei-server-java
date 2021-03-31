@@ -11,19 +11,21 @@ import javax.persistence.Table;
 public class Widget {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long id;
-  private String topicId;
-  private String type;
-  private Integer size;
-  private String text;
-  private String name;
-  private Integer widgetOrder;
-  private String resourceUrl;
-  private Integer width;
-  private Integer height;
-  private String cssClass;
-  private String style;
-  private String value;
+  private Long id; // Unique identifier for this widget
+  private String topicId; // Topic this lesson belongs to
+  private String type; // Type of the widget, e.g., Heading, List, Paragraph, Image, YouTube, HTML, Link
+  private Integer size; // Useful to represent size of widget, e.g., heading size
+  private String text; // Plain text useful for heading text, paragraph text, link text, etc
+  private String name; // Optional name of the widget
+  private Boolean ordered; // widget list isOrdered
+  private String src; // Absolute or relative URL referring to online resource
+  private String url;
+  private String href;
+  private Integer width; // Widget's horizontal
+  private Integer height; // vertical size
+  private String cssClass; // CSS class implementing some CSS rule and transformations configured in some CSS rule
+  private String style; // CSS transformations applied to the widget
+  private String value; // Some arbitrary initial value interpreted by the widget
 
   public Widget() {
   }
@@ -32,15 +34,18 @@ public class Widget {
     this.id = id;
   }
 
-  public Widget(String topicId, String type, Integer size, String text, String name, Integer widgetOrder,
-      String resourceUrl, Integer width, Integer height, String cssClass, String style, String value) {
+  public Widget(String topicId, String type, Integer size, String text, String name, Boolean ordered,
+      String src, String url, String href, Integer width, Integer height, String cssClass, String style,
+      String value) {
     this.topicId = topicId;
     this.type = type;
     this.size = size;
     this.text = text;
     this.name = name;
-    this.widgetOrder = widgetOrder;
-    this.resourceUrl = resourceUrl;
+    this.ordered = ordered;
+    this.src = src;
+    this.url = url;
+    this.href = href;
     this.width = width;
     this.height = height;
     this.cssClass = cssClass;
@@ -48,8 +53,8 @@ public class Widget {
     this.value = value;
   }
 
-  public Widget(Long id, String topicId, String type, Integer size, String text, String name,
-      Integer widgetOrder, String resourceUrl, Integer width, Integer height, String cssClass, String style,
+  public Widget(Long id, String topicId, String type, Integer size, String text, String name, Boolean ordered,
+      String src, String url, String href, Integer width, Integer height, String cssClass, String style,
       String value) {
     this.id = id;
     this.topicId = topicId;
@@ -57,8 +62,10 @@ public class Widget {
     this.size = size;
     this.text = text;
     this.name = name;
-    this.widgetOrder = widgetOrder;
-    this.resourceUrl = resourceUrl;
+    this.ordered = ordered;
+    this.src = src;
+    this.url = url;
+    this.href = href;
     this.width = width;
     this.height = height;
     this.cssClass = cssClass;
@@ -114,20 +121,36 @@ public class Widget {
     this.name = name;
   }
 
-  public Integer getWidgetOrder() {
-    return widgetOrder;
+  public Boolean getOrdered() {
+    return ordered;
   }
 
-  public void setWidgetOrder(Integer widgetOrder) {
-    this.widgetOrder = widgetOrder;
+  public void setOrdered(Boolean ordered) {
+    this.ordered = ordered;
   }
 
-  public String getResourceUrl() {
-    return resourceUrl;
+  public String getSrc() {
+    return src;
   }
 
-  public void setResourceUrl(String resourceUrl) {
-    this.resourceUrl = resourceUrl;
+  public void setSrc(String src) {
+    this.src = src;
+  }
+
+  public String getUrl() {
+    return url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
+  }
+
+  public String getHref() {
+    return href;
+  }
+
+  public void setHref(String href) {
+    this.href = href;
   }
 
   public Integer getWidth() {
